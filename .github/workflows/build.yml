@@ -14,20 +14,22 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4  # نسخه به‌روز checkout
+      uses: actions/checkout@v4
 
     - name: Set up Go
-      uses: actions/setup-go@v5  # نسخه به‌روز setup-go
+      uses: actions/setup-go@v5
       with:
-        go-version: '1.22.0'  # نسخه Go که با پروژه سازگاره
+        go-version: '1.22.0'
+
+    - name: Install dependencies
+      run: go mod tidy
 
     - name: Build the project
-      run: |
-        go build -o cursor-vip
+      run: go build -o cursor-vip
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v4  # نسخه جدید upload-artifact
+      uses: actions/upload-artifact@v4
       with:
         name: cursor-vip-linux-amd64
         path: cursor-vip
-        retention-days: 7  # مدت زمان نگهداری artifact (اختیاری، اینجا 7 روز)
+        retention-days: 7
