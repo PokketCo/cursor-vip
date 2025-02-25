@@ -157,12 +157,10 @@ func GetMac_241018() string {
 	sort.Strings(macError)
 	return strings.Join(macError, "\n")
 }
+
 func GetDeviceID() string {
-	interfaces, err := net.Interfaces()
-	if err != nil {
-		fmt.Println("err:", err)
-		return ""
-	}
+    return "673bb0536b0f2f639eb3742b55fa6e47" // یه DeviceID ثابت دلخواه
+}
 
 	var macAddress, bluetoothAddress []string
 	virtualMacPrefixes := []string{
